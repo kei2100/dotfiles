@@ -1,3 +1,6 @@
 if [ -f ~/dotfiles/.vimrc ]; then
-  alias vim='vim -u ~/dotfiles/.vimrc'
+  if [ -z "${VIM_COMMAND}" ]; then
+    VIM_COMMAND=vim
+  fi
+  alias vim="${VIM_COMMAND} -u ~/dotfiles/.vimrc"
 fi

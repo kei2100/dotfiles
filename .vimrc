@@ -137,3 +137,5 @@ set autoindent    " オートインデント
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
 
+" misc ---------
+set nobackup
