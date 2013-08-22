@@ -13,6 +13,7 @@ NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'scrooloose/nerdtree'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
@@ -106,6 +107,37 @@ NeoBundle 'altercation/vim-colors-solarized'
   let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " neocomplcache setting ----------
 
+" NERDTree setting ----------
+  " 引数なしで実行したとき、NERDTreeを実行する
+  let file_name = expand("%:p")
+  if has('vim_starting') &&  file_name == ""
+      autocmd VimEnter * call ExecuteNERDTree()
+  endif
+   
+  " カーソルが外れているときは自動的にnerdtreeを隠す
+  function! ExecuteNERDTree()
+    "b:nerdstatus = 1 : NERDTree 表示中
+    "b:nerdstatus = 2 : NERDTree 非表示中
+    if !exists('g:nerdstatus')
+      execute 'NERDTree ./'
+      let g:windowWidth = winwidth(winnr())
+      let g:nerdtreebuf = bufnr('')
+      let g:nerdstatus = 1 
+    elseif g:nerdstatus == 1 
+      execute 'wincmd t'
+      execute 'vertical resize' 0 
+      execute 'wincmd p'
+      let g:nerdstatus = 2 
+    elseif g:nerdstatus == 2 
+      execute 'wincmd t'
+      execute 'vertical resize' g:windowWidth
+      let g:nerdstatus = 1 
+    endif
+  endfunction
+  noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr></cr></c-u></c-e>
+
+" NERDTree setting -----------
+
 filetype plugin indent on  " required for Neobundle
 filetype indent on
 syntax on
@@ -124,6 +156,9 @@ set hlsearch      " 検索文字をハイライト
 set wrapscan      " 末尾まで検索したら再び先頭から検索
 nmap <Esc><Esc> :nohlsearch<CR><Esc>  " Esc2回でハイライトを消す
 
+" move
+set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭末で止まらないように
+
 " text ----------
 set textwidth=0   " text幅無制限
 set nowrap        " 折り返し無し
@@ -133,6 +168,7 @@ set softtabstop=2 " tab入力時の空白の数
 set shiftwidth=2  " インデントの空白の数
 set expandtab     " tab入力で<tab>ではなく空白を入力
 set autoindent    " オートインデント
+set clipboard=unnamed "クリップボードを利用する
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
@@ -144,3 +180,4 @@ set nobackup
 if filereadable(expand('~/.vimrc'))
   source ~/.vimrc
 endif
+
