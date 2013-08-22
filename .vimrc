@@ -139,3 +139,8 @@ set wildmenu      " コマンドライン補完を拡張モードに
 
 " misc ---------
 set nobackup
+
+" enable local customize if needed ----------
+if filereadable(expand('~/.vimrc'))
+  source ~/.vimrc
+endif
