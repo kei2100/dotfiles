@@ -135,17 +135,17 @@ NeoBundle 'scrooloose/nerdtree'
     endif
   endfunction
   noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr></cr></c-u></c-e>
-
 " NERDTree setting -----------
+
+" solarized setting ----------
+  syntax enable
+  set background=dark
+  colorscheme solarized
+" solarized setting ----------
 
 filetype plugin indent on  " required for Neobundle
 filetype indent on
 syntax on
-
-" solarized setting ----------
-syntax enable
-set background=dark
-colorscheme solarized
 
 " search ----------
 set wrapscan      " 最後まで検索したら先頭へ戻る
@@ -169,6 +169,8 @@ set shiftwidth=2  " インデントの空白の数
 set expandtab     " tab入力で<tab>ではなく空白を入力
 set autoindent    " オートインデント
 set clipboard=unnamed "クリップボードを利用する
+set undofile            " enalbe to persistent undo
+set undodir=~/.vimundo  " persistent undo dir
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
