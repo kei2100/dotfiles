@@ -171,6 +171,7 @@ set autoindent    " オートインデント
 set clipboard=unnamed "クリップボードを利用する
 set undofile            " enalbe to persistent undo
 set undodir=~/.vimundo  " persistent undo dir
+set bs=indent,eol,start " インデント、行頭でもbackspaceを有効に
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
@@ -182,4 +183,3 @@ set nobackup
 if filereadable(expand('~/.vimrc'))
   source ~/.vimrc
 endif
-
