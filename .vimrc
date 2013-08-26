@@ -10,6 +10,15 @@ endif
 " NeoBundled plugins
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'altercation/vim-colors-solarized'
