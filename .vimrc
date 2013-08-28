@@ -116,7 +116,11 @@ NeoBundle 'altercation/vim-colors-solarized'
   let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " neocomplcache setting ----------
 
-" VimFiled setting ----------
+" Unite.vim setting ----------
+  cnoremap ub<CR> Unite buffer<CR>  
+" Unite.vim setting ----------
+
+" VimFiler setting ----------
   " 引数なしで実行したとき、VimFilerExplorerを実行する
   let file_name = expand("%:p")
   if has('vim_starting') &&  file_name == ""
