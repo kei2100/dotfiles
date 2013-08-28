@@ -19,10 +19,10 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'scrooloose/nerdtree'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
@@ -116,35 +116,14 @@ NeoBundle 'altercation/vim-colors-solarized'
   let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " neocomplcache setting ----------
 
-"" NERDTree setting ----------
-"  " 引数なしで実行したとき、NERDTreeを実行する
-"  let file_name = expand("%:p")
-"  if has('vim_starting') &&  file_name == ""
-"      autocmd VimEnter * call ExecuteNERDTree()
-"  endif
-"   
-"  " カーソルが外れているときは自動的にnerdtreeを隠す
-"  function! ExecuteNERDTree()
-"    "b:nerdstatus = 1 : NERDTree 表示中
-"    "b:nerdstatus = 2 : NERDTree 非表示中
-"    if !exists('g:nerdstatus')
-"      execute 'NERDTree ./'
-"      let g:windowWidth = winwidth(winnr())
-"      let g:nerdtreebuf = bufnr('')
-"      let g:nerdstatus = 1 
-"    elseif g:nerdstatus == 1 
-"      execute 'wincmd t'
-"      execute 'vertical resize' 0 
-"      execute 'wincmd p'
-"      let g:nerdstatus = 2 
-"    elseif g:nerdstatus == 2 
-"      execute 'wincmd t'
-"      execute 'vertical resize' g:windowWidth
-"      let g:nerdstatus = 1 
-"    endif
-"  endfunction
-"  noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr></cr></c-u></c-e>
-"" NERDTree setting -----------
+" VimFiled setting ----------
+  " 引数なしで実行したとき、VimFilerExplorerを実行する
+  let file_name = expand("%:p")
+  if has('vim_starting') &&  file_name == ""
+      autocmd VimEnter * VimFilerExplorer
+  endif
+  nnoremap <Leader>e :VimFilerExplorer<CR>  " \eでVimFilerExplorerを開く
+" VimFiler setting ----------
 
 " solarized setting ----------
   syntax enable
@@ -181,6 +160,7 @@ set clipboard=unnamed "クリップボードを利用する
 set undofile            " enalbe to persistent undo
 set undodir=~/.vimundo  " persistent undo dir
 set bs=indent,eol,start " インデント、行頭でもbackspaceを有効に
+set hid           " 編集中のバッファを保存しないでも切り替え可能に
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
