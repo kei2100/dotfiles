@@ -165,12 +165,12 @@ set undofile            " enalbe to persistent undo
 set undodir=~/.vimundo  " persistent undo dir
 set bs=indent,eol,start " インデント、行頭でもbackspaceを有効に
 set hid           " 編集中のバッファを保存しないでも切り替え可能に
+set nobackup      " backupファイル関連作らない
+set nowritebackup " 
+set noswapfile    " 
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
-
-" misc ---------
-set nobackup
 
 " enable local customize if needed ----------
 if filereadable(expand('~/.vimrc'))
