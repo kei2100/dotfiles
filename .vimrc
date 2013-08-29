@@ -23,6 +23,7 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'itchyny/lightline.vim'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
