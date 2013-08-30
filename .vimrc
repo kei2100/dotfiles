@@ -173,6 +173,8 @@ set noswapfile    "
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
 
+" misc ----------
+set visualbell    " beep音を消す
 " enable local customize if needed ----------
 if filereadable(expand('~/.vimrc'))
   source ~/.vimrc
