@@ -116,6 +116,7 @@ NeoBundle 'itchyny/lightline.vim'
   " rsense setting
   if filereadable( expand('~/.vim/rsense/rsense-0.3/bin/rsense') )
     let g:rsenseHome = expand('~/.vim/rsense/rsense-0.3')
+    let g:rsenseUseOmniFunc = 1
     let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
   endif
 
