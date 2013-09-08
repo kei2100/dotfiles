@@ -23,6 +23,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'altercation/vim-colors-solarized'
 
@@ -164,6 +165,10 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>  " Esc2回でハイライトを消す
 
 " move
 set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭末で止まらないように
+
+" buffer
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprevious<CR>
 
 " text ----------
 set textwidth=0   " text幅無制限
