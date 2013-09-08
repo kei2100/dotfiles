@@ -23,8 +23,8 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'itchyny/lightline.vim'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
@@ -41,7 +41,7 @@ NeoBundle 'itchyny/lightline.vim'
   " Use camel case completion.
   "let g:neocomplcache_enable_camel_case_completion = 1
   " Use underbar completion.
-  "let g:neocomplcache_enable_underbar_completion = 1
+  let g:neocomplcache_enable_underbar_completion = 1
   
   " Define dictionary.
   let g:neocomplcache_dictionary_filetype_lists = {
@@ -138,6 +138,11 @@ NeoBundle 'itchyny/lightline.vim'
   nnoremap <Leader>e :VimFilerExplorer<CR>  " \eでVimFilerExplorerを開く
 " VimFiler setting ----------
 
+" airline setting ----------
+  let g:airline_left_sep = ''
+  let g:airline_right_sep= ''
+" airline setting ----------
+
 " solarized setting ----------
   syntax enable
   set background=dark
@@ -183,6 +188,8 @@ set wildmenu      " コマンドライン補完を拡張モードに
 
 " misc ----------
 set visualbell    " beep音を消す
+set laststatus=2  " statuslineを常に表示
+
 " enable local customize if needed ----------
 if filereadable(expand('~/.vimrc'))
   source ~/.vimrc
