@@ -10,6 +10,7 @@ endif
 " NeoBundled plugins
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -107,11 +108,17 @@ NeoBundle 'itchyny/lightline.vim'
   " Enable heavy omni completion.
   if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
-    endif
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+  endif
+  let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+  let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+  let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
   
+  " rsense setting
+  if filereadable( expand('~/.vim/rsense/rsense-0.3/bin/rsense') )
+    let g:rsenseHome = expand('~/.vim/rsense/rsense-0.3')
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  endif
+
   " For perlomni.vim setting.
   " https://github.com/c9s/perlomni.vim
   let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
