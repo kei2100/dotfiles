@@ -23,6 +23,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -138,6 +139,10 @@ NeoBundle 'altercation/vim-colors-solarized'
   endif
   nnoremap <Leader>e :VimFilerExplorer<CR>  " \eでVimFilerExplorerを開く
 " VimFiler setting ----------
+
+" vim-endwise setting ----------
+  let g:endwise_no_mappings=1
+" vim-endwise setting ----------
 
 " airline setting ----------
   let g:airline_left_sep = ''
