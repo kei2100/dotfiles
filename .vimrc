@@ -66,7 +66,9 @@ NeoBundle 'altercation/vim-colors-solarized'
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
-    return neocomplcache#smart_close_popup() . "\<CR>"
+    "return neocomplcache#smart_close_popup() . "\<CR>"
+    return pumvisible() ? neocomplcache#close_popup() : "\<Cr>" " Enter入力で補完を確定。改行は入れない
+    
     " For no inserting <CR> key.
     "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
   endfunction
