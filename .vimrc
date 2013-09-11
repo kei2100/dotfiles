@@ -141,10 +141,6 @@ NeoBundle 'altercation/vim-colors-solarized'
   nnoremap <Leader>e :VimFilerExplorer<CR>  " \eでVimFilerExplorerを開く
 " VimFiler setting ----------
 
-" vim-endwise setting ----------
-  let g:endwise_no_mappings = 1
-" vim-endwise setting ----------
-
 " airline setting ----------
   let g:airline_left_sep = ''
   let g:airline_right_sep= ''
