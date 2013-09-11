@@ -67,11 +67,10 @@ NeoBundle 'altercation/vim-colors-solarized'
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
   function! s:my_cr_function()
     "return neocomplcache#smart_close_popup() . "\<CR>"
-    return pumvisible() ? neocomplcache#close_popup() : "\<Cr>" " Enter入力で補完を確定。改行は入れない
-    
     " For no inserting <CR> key.
-    "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
   endfunction
+ 
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
   " <C-h>, <BS>: close popup and delete backword char.
@@ -143,7 +142,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 " VimFiler setting ----------
 
 " vim-endwise setting ----------
-  let g:endwise_no_mappings=1
+  let g:endwise_no_mappings = 1
 " vim-endwise setting ----------
 
 " airline setting ----------
