@@ -128,6 +128,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 " Unite.vim setting ----------
   cnoremap ub<CR> Unite buffer<CR>  
+  cnoremap uf<CR> Unite file<CR>  
 " Unite.vim setting ----------
 
 " VimFiler setting ----------
