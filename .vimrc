@@ -191,6 +191,12 @@ set hid           " 編集中のバッファを保存しないでも切り替え
 set nobackup      " backupファイル関連作らない
 set nowritebackup " 
 set noswapfile    " 
+" カレントウィンドウのみカーソル行をハイライト
+augroup cch
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+augroup END
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
