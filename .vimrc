@@ -26,6 +26,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 
 " neocomplcache setting ----------
