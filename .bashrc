@@ -4,7 +4,7 @@ alias ll='ls -l'
 
 # pbcopy,pbpaste (osx)
 if which pbcopy > /dev/null 2>&1; then
-  alias pb='pbcopy|pbpaste'
+  alias pb='pbcopy && pbpaste'
 fi
 
 # vimrc
