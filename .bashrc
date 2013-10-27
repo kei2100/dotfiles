@@ -2,9 +2,17 @@
 alias ls='ls -G'
 alias ll='ls -l'
 
-# pbcopy,pbpaste (osx)
+# (osx setting)
+## pbcopy,pbpaste (osx)
 if which pbcopy > /dev/null 2>&1; then
   alias pb='pbcopy && pbpaste'
+fi
+## Open UNC path by converting to samba path
+if which unc2smb > /dev/null 2>&1; then
+  function uncopen() {
+    SMB_PATH=`unc2smb $@`
+    open ${SMB_PATH}
+  }
 fi
 
 # vimrc
