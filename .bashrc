@@ -14,6 +14,17 @@ if which unc2smb > /dev/null 2>&1; then
     open ${SMB_PATH}
   }
 fi
+## if brew exists 
+if which brew > /dev/null 2>&1; then
+  BREW_PREFIX=`brew --prefix`
+  ### z
+  if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ];then
+    . ${BREW_PREFIX}/etc/profile.d/z.sh
+    function precmd () {
+      z --add "$(pwd -P)"
+    }
+  fi
+fi
 
 # vimrc
 if [ -f ~/dotfiles/.vimrc ]; then
