@@ -5,7 +5,7 @@ alias ll='ls -l'
 # (osx setting)
 ## pbcopy,pbpaste (osx)
 if which pbcopy > /dev/null 2>&1; then
-  alias pb='pbcopy && pbpaste'
+  alias pb='perl -pe "chomp" | pbcopy && pbpaste'
 fi
 ## Open UNC path by converting to samba path
 if which unc2smb > /dev/null 2>&1; then
