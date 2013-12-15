@@ -34,3 +34,17 @@ if [ -f ~/dotfiles/.vimrc ]; then
   alias vim="${VIM_COMMAND} -u ~/dotfiles/.vimrc"
   alias vimrc="vim ~/dotfiles/.vimrc"
 fi
+
+# git completion
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+if [ -z "${GIT_COMPLETION_PATH}" ]; then
+  GIT_COMPLETION_PATH=~/localrepos/local/git/git-completion.bash
+fi
+if [ -f ${GIT_COMPLETION_PATH} ]; then
+  . ${GIT_COMPLETION_PATH}  
+fi
+
+
+
+
+
