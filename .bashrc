@@ -31,7 +31,11 @@ if [ -f ~/dotfiles/.vimrc ]; then
   if [ -z "${VIM_COMMAND}" ]; then
     VIM_COMMAND=vim
   fi
+  if [ -z "${VIMDIFF_COMMAND}" ]; then
+    VIMDIFF_COMMAND=vimdiff
+  fi
   alias vim="${VIM_COMMAND} -u ~/dotfiles/.vimrc"
+  alias vimdiff="${VIMDIFF_COMMAND} -u ~/dotfiles/.vimrc"
   alias vimrc="vim ~/dotfiles/.vimrc"
 fi
 
