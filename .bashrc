@@ -39,6 +39,11 @@ if [ -f ~/dotfiles/.vimrc ]; then
   alias vimrc="vim ~/dotfiles/.vimrc"
 fi
 
+# ctags
+if [ -f ~/dotfiles/.ctags ]; then
+  alias ctags="ctags --options=$(cd ~/dotfiles && pwd)/.ctags"
+fi
+
 # git completion
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
 if [ -z "${GIT_COMPLETION_PATH}" ]; then
@@ -47,8 +52,3 @@ fi
 if [ -f ${GIT_COMPLETION_PATH} ]; then
   . ${GIT_COMPLETION_PATH}  
 fi
-
-
-
-
-
