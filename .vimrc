@@ -27,6 +27,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'szw/vim-tags'
 NeoBundle 'altercation/vim-colors-solarized'
 
 " neocomplcache setting ----------
@@ -167,6 +168,7 @@ set incsearch     " インクリメンタルサーチ
 set hlsearch      " 検索文字をハイライト
 set wrapscan      " 末尾まで検索したら再び先頭から検索
 nmap <Esc><Esc> :nohlsearch<CR><Esc>  " Esc2回でハイライトを消す
+nnoremap <C-]> g<C-]> " tagsジャンプの時に複数ある時は一覧表示                                        
 
 " move
 set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭末で止まらないように
