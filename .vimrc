@@ -29,6 +29,9 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'altercation/vim-colors-solarized'
+" node.js
+NeoBundle 'moll/vim-node'
+NeoBundle 'myhere/vim-nodejs-complete'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
@@ -119,7 +122,7 @@ NeoBundle 'altercation/vim-colors-solarized'
   let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
   let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
   
-  " rsense setting
+  " rsense (ruby) setting
   if filereadable( expand('~/.vim/rsense/rsense-0.3/bin/rsense') )
     let g:rsenseHome = expand('~/.vim/rsense/rsense-0.3')
     let g:rsenseUseOmniFunc = 1
