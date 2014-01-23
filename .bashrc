@@ -24,6 +24,11 @@ if which brew > /dev/null 2>&1; then
       z --add "$(pwd -P)"
     }
   fi
+  
+  ### bash-completion
+  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
+    . ${BREW_PREFIX}/etc/bash_completion
+  fi
 fi
 
 # vimrc
