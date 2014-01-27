@@ -25,10 +25,10 @@ if which brew > /dev/null 2>&1; then
     }
   fi
   
-  ### bash-completion
-  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
-    . ${BREW_PREFIX}/etc/bash_completion
-  fi
+#  ### bash-completion
+#  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
+#    . ${BREW_PREFIX}/etc/bash_completion
+#  fi
 fi
 
 # vimrc
