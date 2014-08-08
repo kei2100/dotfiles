@@ -28,6 +28,7 @@ fi
 
 # peco
 if which peco > /dev/null 2>&1; then
+  alias peco="peco --rcfile ~/dotfiles/.peco/config.json" 
   function pessh() {
     ssh $@ $(cat ~/.ssh/known_hosts | awk "{print \$1}" | peco)
   }
