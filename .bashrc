@@ -18,17 +18,19 @@ fi
 if which brew > /dev/null 2>&1; then
   BREW_PREFIX=`brew --prefix`
   ### z
-  if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ];then
+  if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ]; then
     . ${BREW_PREFIX}/etc/profile.d/z.sh
     function precmd () {
       z --add "$(pwd -P)"
     }
   fi
-  
-#  ### bash-completion
-#  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
-#    . ${BREW_PREFIX}/etc/bash_completion
-#  fi
+fi
+
+# peco
+if which peco > /dev/null 2>&1; then
+  function pessh() {
+    ssh $@ $(cat ~/.ssh/known_hosts | awk "{print \$1}" | peco)
+  }
 fi
 
 # vimrc
