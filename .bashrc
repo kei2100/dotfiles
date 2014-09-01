@@ -30,7 +30,10 @@ fi
 if which peco > /dev/null 2>&1; then
   alias peco="peco --rcfile ~/dotfiles/.peco/config.json" 
   function pessh() {
-    ssh $@ $(cat ~/.ssh/known_hosts | awk "{print \$1}" | perl -pe "s/,.+//" | peco)
+    local OPT=$@
+    local HOST=$(cat ~/.ssh/known_hosts | awk "{print \$1}" | perl -pe "s/,.+//" | peco)
+    history -s ssh "${OPT} ${HOST}"
+    ssh ${OPT} ${HOST}
   }
 fi
 
