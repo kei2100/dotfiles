@@ -32,6 +32,7 @@ if which peco > /dev/null 2>&1; then
   function pessh() {
     local OPT=$@
     local HOST=$(cat ~/.ssh/known_hosts | awk "{print \$1}" | perl -pe "s/,.+//" | peco)
+    history -s pessh ${OPT}
     history -s ssh "${OPT} ${HOST}"
     ssh ${OPT} ${HOST}
   }
