@@ -2,6 +2,10 @@
 alias ls='ls -G'
 alias ll='ls -l'
 
+# history
+HISTSIZE=10000
+HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
+
 # (osx setting)
 ## pbcopy,pbpaste (osx)
 if which pbcopy > /dev/null 2>&1; then
