@@ -55,6 +55,9 @@ if [ -f ~/dotfiles/.vimrc ]; then
   alias vimrc="vim ~/dotfiles/.vimrc"
 fi
 
+# bashrc
+alias bashrc='vim ~/dotfiles/.bashrc'
+
 # ctags
 if [ -f ~/dotfiles/.ctags ]; then
   alias ctags="ctags --options=$(cd ~/dotfiles && pwd)/.ctags"
@@ -68,3 +71,10 @@ fi
 if [ -f ${GIT_COMPLETION_PATH} ]; then
   . ${GIT_COMPLETION_PATH}  
 fi
+
+# pyenv
+if [ -z "${PYENV_ROOT}" ]; then
+  PYENV_ROOT=~/localrepos/github.com/yyuu/pyenv
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+fi
+
