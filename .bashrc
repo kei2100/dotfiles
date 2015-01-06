@@ -33,12 +33,20 @@ fi
 # peco
 if which peco > /dev/null 2>&1; then
   alias peco="peco --rcfile ~/dotfiles/.peco/config.json" 
+
   function pessh() {
     local OPT=$@
     local HOST=$(cat ~/.ssh/known_hosts | awk "{print \$1}" | perl -pe "s/,.+//" | peco)
     history -s pessh ${OPT}
     history -s ssh "${OPT} ${HOST}"
     ssh ${OPT} ${HOST}
+  }
+
+  pehistory() {
+    local CMD=$(HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S - "  history | tail -r | peco)
+    CMD=`echo ${CMD} | perl -pe 's/.+? - (.+)/$1/gc'`
+    history -s ${CMD}
+    eval ${CMD}
   }
 fi
 
