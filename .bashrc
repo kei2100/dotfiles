@@ -63,6 +63,11 @@ if [ -f ~/dotfiles/.vimrc ]; then
   alias vimrc="vim ~/dotfiles/.vimrc"
 fi
 
+# tmux
+if [ -f ~/dotfiles/.tmux.conf ]; then
+  alias tmux="tmux -f ~/dotfiles/.tmux.conf"
+fi
+
 # bashrc
 alias bashrc='vim ~/dotfiles/.bashrc'
 
