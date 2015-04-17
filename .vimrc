@@ -32,6 +32,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 " node.js
 NeoBundle 'moll/vim-node'
 NeoBundle 'myhere/vim-nodejs-complete'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
@@ -158,6 +159,10 @@ NeoBundle 'myhere/vim-nodejs-complete'
   set background=dark
   colorscheme solarized
 " solarized setting ----------
+
+" coffee script setting ------
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 
 filetype plugin indent on  " required for Neobundle
 filetype indent on
