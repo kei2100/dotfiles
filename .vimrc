@@ -32,7 +32,9 @@ NeoBundle 'altercation/vim-colors-solarized'
 " node.js
 NeoBundle 'moll/vim-node'
 NeoBundle 'myhere/vim-nodejs-complete'
+
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'markcornick/vim-terraform'
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
