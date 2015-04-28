@@ -85,9 +85,3 @@ if [ -f ${GIT_COMPLETION_PATH} ]; then
   . ${GIT_COMPLETION_PATH}  
 fi
 
-# pyenv
-if [ -z "${PYENV_ROOT}" ]; then
-  PYENV_ROOT=~/localrepos/github.com/yyuu/pyenv
-  export PATH="${PYENV_ROOT}/bin:${PATH}"
-fi
-
