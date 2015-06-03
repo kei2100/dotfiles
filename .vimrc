@@ -4,37 +4,39 @@ filetype off
 " NeoBundle setting
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" NeoBundled plugins
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neocomplcache-rsense'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ }
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'bling/vim-bufferline'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'altercation/vim-colors-solarized'
-" node.js
-NeoBundle 'moll/vim-node'
-NeoBundle 'myhere/vim-nodejs-complete'
+call neobundle#begin(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'markcornick/vim-terraform'
+  " NeoBundled plugins
+  NeoBundle 'Shougo/neocomplcache.git'
+  NeoBundle 'Shougo/neocomplcache-rsense'
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+    \ },
+  \ }
+  NeoBundle 'Shougo/vimfiler'
+  NeoBundle 'thinca/vim-ref'
+  NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'bling/vim-bufferline'
+  NeoBundle 'bling/vim-airline'
+  NeoBundle 'rhysd/clever-f.vim'
+  NeoBundle 'szw/vim-tags'
+  NeoBundle 'altercation/vim-colors-solarized'
+  " node.js
+  NeoBundle 'moll/vim-node'
+  NeoBundle 'myhere/vim-nodejs-complete'
+  NeoBundle 'kchmck/vim-coffee-script'
+  
+  NeoBundle 'markcornick/vim-terraform'
+call neobundle#end()
 
 " neocomplcache setting ----------
   " Disable AutoComplPop.
