@@ -34,7 +34,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'moll/vim-node'
   NeoBundle 'myhere/vim-nodejs-complete'
   NeoBundle 'kchmck/vim-coffee-script'
-  
+
   NeoBundle 'markcornick/vim-terraform'
 call neobundle#end()
 
@@ -48,30 +48,30 @@ call neobundle#end()
   " Set minimum syntax keyword length.
   let g:neocomplcache_min_syntax_length = 3
   let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-  
+
   " Enable heavy features.
   " Use camel case completion.
   "let g:neocomplcache_enable_camel_case_completion = 1
   " Use underbar completion.
   let g:neocomplcache_enable_underbar_completion = 1
-  
+
   " Define dictionary.
   let g:neocomplcache_dictionary_filetype_lists = {
       \ 'default' : '',
       \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions'
       \ }
-  
+
   " Define keyword.
   if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
   endif
   let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-  
+
   " Plugin key-mappings.
   inoremap <expr><C-g>     neocomplcache#undo_completion()
   inoremap <expr><C-l>     neocomplcache#complete_common_string()
-  
+
   " Recommended key-mappings.
   " <CR>: close popup and save indent.
   inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -80,7 +80,7 @@ call neobundle#end()
     " For no inserting <CR> key.
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
   endfunction
- 
+
   " <TAB>: completion.
   inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
   inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -92,7 +92,7 @@ call neobundle#end()
 
   " Close popup by <Space>.
   "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-  
+
   " For cursor moving in insert mode(Not recommended)
   "inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
   "inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
@@ -102,23 +102,23 @@ call neobundle#end()
   "let g:neocomplcache_enable_cursor_hold_i = 1
   " Or set this.
   "let g:neocomplcache_enable_insert_char_pre = 1
-  
+
   " AutoComplPop like behavior.
   "let g:neocomplcache_enable_auto_select = 1
-  
+
   " Shell like behavior(not recommended).
   "set completeopt+=longest
   "let g:neocomplcache_enable_auto_select = 1
   "let g:neocomplcache_disable_auto_complete = 1
   "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-  
+
   " Enable omni completion.
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  
+
   " Enable heavy omni completion.
   if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
@@ -126,7 +126,7 @@ call neobundle#end()
   let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
   let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
   let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-  
+
   " rsense (ruby) setting
   if filereadable( expand('~/.vim/rsense/rsense-0.3/bin/rsense') )
     let g:rsenseHome = expand('~/.vim/rsense/rsense-0.3')
@@ -140,8 +140,8 @@ call neobundle#end()
 " neocomplcache setting ----------
 
 " Unite.vim setting ----------
-  cnoremap ub<CR> Unite buffer<CR>  
-  cnoremap uf<CR> Unite file<CR>  
+  cnoremap ub<CR> Unite buffer<CR>
+  cnoremap uf<CR> Unite file<CR>
 " Unite.vim setting ----------
 
 " VimFiler setting ----------
@@ -180,7 +180,7 @@ set incsearch     " インクリメンタルサーチ
 set hlsearch      " 検索文字をハイライト
 set wrapscan      " 末尾まで検索したら再び先頭から検索
 nmap <Esc><Esc> :nohlsearch<CR><Esc>  " Esc2回でハイライトを消す
-nnoremap <C-]> g<C-]> " tagsジャンプの時に複数ある時は一覧表示                                        
+nnoremap <C-]> g<C-]> " tagsジャンプの時に複数ある時は一覧表示
 
 " move
 set whichwrap=b,s,h,l,<,>,[,] " カーソルを行頭末で止まらないように
@@ -204,14 +204,16 @@ set undodir=~/.vimundo  " persistent undo dir
 set bs=indent,eol,start " インデント、行頭でもbackspaceを有効に
 set hid           " 編集中のバッファを保存しないでも切り替え可能に
 set nobackup      " backupファイル関連作らない
-set nowritebackup " 
-set noswapfile    " 
+set nowritebackup "
+set noswapfile    "
 " カレントウィンドウのみカーソル行をハイライト
 augroup cch
   autocmd! cch
   autocmd WinLeave * set nocursorline
   autocmd WinEnter,BufRead * set cursorline
 augroup END
+" 保存時に行末空白削除
+autocmd BufWritePre * :%s/\s\+$//ge
 
 " command ----------
 set wildmenu      " コマンドライン補完を拡張モードに
