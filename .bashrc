@@ -18,7 +18,7 @@ if which unc2smb > /dev/null 2>&1; then
     open ${SMB_PATH}
   }
 fi
-## if brew exists 
+## if brew exists
 if which brew > /dev/null 2>&1; then
   BREW_PREFIX=`brew --prefix`
   ### z
@@ -32,7 +32,7 @@ fi
 
 # peco
 if which peco > /dev/null 2>&1; then
-  alias peco="peco --rcfile ~/dotfiles/.peco/config.json" 
+  alias peco="peco --rcfile ~/dotfiles/.peco/config.json"
 
   function pessh() {
     local OPT=$@
@@ -78,10 +78,15 @@ fi
 
 # git completion
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 if [ -z "${GIT_COMPLETION_PATH}" ]; then
-  GIT_COMPLETION_PATH=~/localrepos/local/git/git-completion.bash
+  #GIT_COMPLETION_PATH=~/localrepos/local/git/git-completion.bash
+  GIT_COMPLETION_PATH=~/localrepos/local/git
 fi
-if [ -f ${GIT_COMPLETION_PATH} ]; then
-  . ${GIT_COMPLETION_PATH}  
+if [ -d ${GIT_COMPLETION_PATH} ]; then
+  source ${GIT_COMPLETION_PATH}/git-prompt.sh
+  source ${GIT_COMPLETION_PATH}/git-completion.bash
+  GIT_PS1_SHOWDIRTYSTATE=true
+  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
 fi
 
