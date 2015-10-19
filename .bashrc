@@ -1,6 +1,7 @@
 # alias
 alias ls='ls -G'
 alias ll='ls -l'
+alias l='ll'
 
 # history
 HISTSIZE=10000
@@ -84,9 +85,9 @@ if [ -z "${GIT_COMPLETION_PATH}" ]; then
   GIT_COMPLETION_PATH=~/localrepos/local/git
 fi
 if [ -d ${GIT_COMPLETION_PATH} ]; then
-  source ${GIT_COMPLETION_PATH}/git-prompt.sh
+#  source ${GIT_COMPLETION_PATH}/git-prompt.sh
   source ${GIT_COMPLETION_PATH}/git-completion.bash
-  GIT_PS1_SHOWDIRTYSTATE=true
-  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
+#  GIT_PS1_SHOWDIRTYSTATE=true
+#  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
 fi
 
