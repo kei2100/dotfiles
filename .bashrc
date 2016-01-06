@@ -3,6 +3,8 @@ alias ls='ls -G'
 alias ll='ls -l'
 alias l='ll'
 
+alias gs='git status'
+
 # history
 HISTSIZE=10000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
@@ -48,6 +50,13 @@ if which peco > /dev/null 2>&1; then
     CMD=`echo ${CMD} | perl -pe 's/.+? - (.+)/$1/gc'`
     history -s ${CMD}
     eval ${CMD}
+  }
+
+  perepo() {
+    local REPODIR=localrepos
+    REPODIR=$(echo ${REPODIR} | perl -pe 's|(^/).+(/$)||')
+    local DIR=$(find ~/${REPODIR} -type d -mindepth 3 -maxdepth 3 | perl -pe "s|`echo $(cd ~ && pwd)/${REPODIR}/`||" | peco)
+    cd ~/${REPODIR}/${DIR}
   }
 fi
 
