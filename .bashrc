@@ -4,6 +4,9 @@ alias ll='ls -l'
 alias l='ll'
 
 alias gs='git status'
+alias gb='git branch'
+alias gcm='git checkout master'
+alias gpom='git pull origin master'
 
 # history
 HISTSIZE=10000
