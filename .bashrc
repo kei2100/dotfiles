@@ -3,10 +3,21 @@ alias ls='ls -G'
 alias ll='ls -l'
 alias l='ll'
 
+# git
 alias gs='git status'
 alias gb='git branch'
 alias gcm='git checkout master'
+alias gcb='git checkout -b'
 alias gpom='git pull origin master'
+
+function lsb() {
+  CUR=$(pwd)
+  for DIR in $(find ./*/.git -type d -maxdepth 0 | perl -pe 's|^\./(.+)/\.git|$1|'); do
+    echo ${DIR}
+    cd ${DIR} && git branch
+    cd ${CUR}
+  done
+}
 
 # history
 HISTSIZE=10000
