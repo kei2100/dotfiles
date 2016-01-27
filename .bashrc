@@ -114,3 +114,15 @@ if [ -d ${GIT_COMPLETION_PATH} ]; then
 #  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
 fi
 
+# utils
+function unix2() {
+  if [ ! -z "$@" ]; then
+    echo $@ | __unix2
+  else
+    cat /dev/stdin | __unix2
+  fi
+}
+function __unix2() {
+  ruby -ne 'n=Time.now(); t=Time.at($_.to_i); puts sprintf("%d\t%s\t%f\t%f\t%d", $_, t, (t-n)/3600, (t-n)/60, t-n)'
+}
+
