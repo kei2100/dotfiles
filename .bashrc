@@ -116,13 +116,11 @@ fi
 
 # utils
 function unix2() {
-  if [ ! -z "$@" ]; then
-    echo $@ | __unix2
+  local UNIXTIME
+  if [ -p /dev/stdin ]; then
+    UNIXTIME=$(cat -)
   else
-    cat /dev/stdin | __unix2
+    UNIXTIME=$@
   fi
+  echo ${UNIXTIME} | ruby -ne 'n=Time.now(); t=Time.at($_.to_i); puts sprintf("%d\t%s\t%f\t%f\t%d", $_, t, (t-n)/3600, (t-n)/60, t-n)'
 }
-function __unix2() {
-  ruby -ne 'n=Time.now(); t=Time.at($_.to_i); puts sprintf("%d\t%s\t%f\t%f\t%d", $_, t, (t-n)/3600, (t-n)/60, t-n)'
-}
-
