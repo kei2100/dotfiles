@@ -19,6 +19,16 @@ function lsb() {
   done
 }
 
+function gclb() {
+  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
+  if [ "$B" == "master" ]; then
+    echo "$B"
+    return
+  fi
+
+  git checkout master && git pull origin master && git branch -d $B
+}
+
 # history
 HISTSIZE=10000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
