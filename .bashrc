@@ -7,8 +7,10 @@ alias l='ll'
 alias gs='git status'
 alias gb='git branch'
 alias gcm='git checkout master'
+alias gcd='git checkout develop'
 alias gcb='git checkout -b'
 alias gpom='git pull origin master'
+alias gpud='git pull upstream develop'
 
 function lsb() {
   CUR=$(pwd)
@@ -21,22 +23,22 @@ function lsb() {
 
 function gclb() {
   local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
-  if [ "$B" == "master" ]; then
+  if [ "$B" == "develop" ]; then
     echo "$B"
     return
   fi
 
-  git checkout master && git pull origin master && git branch -d $B
+  git checkout develop && git pull upstream develop && git branch -d $B
 }
 
-function grbm() {
+function grbd() {
   local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
-  if [ "$B" == "master" ]; then
+  if [ "$B" == "develop" ]; then
     echo "$B"
     return
   fi
 
-  git checkout master && git pull origin master && git checkout $B && git rebase master
+  git checkout develop && git pull upstream develop && git checkout $B && git rebase develop
 }
 
 # history
