@@ -1,3 +1,4 @@
-mysql:bind '^R' em-inc-search-prev
-mysql:bind '^U' vi-kill-line-prev
-mysql:bind '^W' ed-delete-prev-word
+mysql:bind -e
+mysql:bind "^r" em-inc-search-prev   # enable incremental backward search
+mysql:bind "\\t" rl_complete         # enable completion
+mysql:bind "^w" ed-delete-prev-word  # delete prev word if ctrl+w
