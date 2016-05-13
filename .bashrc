@@ -41,6 +41,10 @@ function grbd() {
   git checkout develop && git pull upstream develop && git checkout $B && git rebase develop
 }
 
+function gcpr() {
+  git fetch upstream pull/$@/head:pr-$@ && git checkout pr-$@
+}
+
 # history
 HISTSIZE=10000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
