@@ -6,6 +6,7 @@ alias l='ll'
 # git
 alias gs='git status'
 alias gb='git branch'
+alias gl='git log'
 alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias gcb='git checkout -b'
