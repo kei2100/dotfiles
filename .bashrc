@@ -42,8 +42,8 @@ function grbd() {
   git checkout develop && git pull upstream develop && git checkout $B && git rebase develop
 }
 
-function gcpr() {
-  git fetch upstream pull/$@/head:pr-$@ && git checkout pr-$@
+function gfpr() {
+  git fetch upstream pull/$@/head:pr-$@
 }
 
 # history
