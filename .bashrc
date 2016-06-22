@@ -142,6 +142,10 @@ if [ -d ${GIT_COMPLETION_PATH} ]; then
 #  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
 fi
 
+# git diff-highlight
+[ -z "${GIT_DIFF_HIGHLIGHT_PATH}" ] && GIT_DIFF_HIGHLIGHT_PATH=/usr/local/share/git-core/contrib/diff-highlight
+[ -d ${GIT_DIFF_HIGHLIGHT_PATH} ] && export PATH=${GIT_DIFF_HIGHLIGHT_PATH}:${PATH}
+
 # utils
 function unix2() {
   local UNIXTIME
