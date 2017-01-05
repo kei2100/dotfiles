@@ -12,6 +12,7 @@ alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias gcb='git checkout -b'
 alias gpom='git pull origin master'
+alias gpum='git pull upstream master'
 alias gpud='git pull upstream develop'
 
 function lsb() {
@@ -41,6 +42,11 @@ function grbd() {
   fi
 
   git checkout develop && git pull upstream develop && git checkout $B && git rebase develop
+}
+
+function gpo() {
+  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
+  git push origin $B
 }
 
 function gfpr() {
