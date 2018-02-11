@@ -110,31 +110,13 @@ if which peco > /dev/null 2>&1; then
   }
 fi
 
-## vimrc
-#if [ -f ~/dotfiles/.vimrc ]; then
-#  if [ -z "${VIM_COMMAND}" ]; then
-#    VIM_COMMAND=vim
-#  fi
-#  if [ -z "${VIMDIFF_COMMAND}" ]; then
-#    VIMDIFF_COMMAND=vimdiff
-#  fi
-#  alias vim="${VIM_COMMAND} -u ~/dotfiles/.vimrc"
-#  alias vimdiff="${VIMDIFF_COMMAND} -u ~/dotfiles/.vimrc"
-#  alias vimrc="vim ~/dotfiles/.vimrc"
-#fi
-
 # tmux
 if [ -f ~/dotfiles/.tmux.conf ]; then
   alias tmux="tmux -f ~/dotfiles/.tmux.conf"
 fi
 
 # bashrc
-alias bashrc='vim ~/dotfiles/.bashrc'
-
-# ctags
-if [ -f ~/dotfiles/.ctags ]; then
-  alias ctags="ctags --options=$(cd ~/dotfiles && pwd)/.ctags"
-fi
+alias bashrc='nvim ~/dotfiles/.bashrc'
 
 # git completion
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
@@ -154,13 +136,3 @@ fi
 [ -z "${GIT_DIFF_HIGHLIGHT_PATH}" ] && GIT_DIFF_HIGHLIGHT_PATH=/usr/local/share/git-core/contrib/diff-highlight
 [ -d ${GIT_DIFF_HIGHLIGHT_PATH} ] && export PATH=${GIT_DIFF_HIGHLIGHT_PATH}:${PATH}
 
-# utils
-function unix2() {
-  local UNIXTIME
-  if [ -p /dev/stdin ]; then
-    UNIXTIME=$(cat -)
-  else
-    UNIXTIME=$@
-  fi
-  echo ${UNIXTIME} | ruby -ne 'n=Time.now(); t=Time.at($_.to_i); puts sprintf("%d\t%s\t%f\t%f\t%d", $_, t, (t-n)/3600, (t-n)/60, t-n)'
-}
