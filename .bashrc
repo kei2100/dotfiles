@@ -119,8 +119,7 @@ fi
 alias bashrc='nvim ~/dotfiles/.bashrc'
 
 # git completion
-# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
-# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 if [ -z "${GIT_COMPLETION_PATH}" ]; then
   GIT_COMPLETION_PATH=~/repos/local/git
 fi
