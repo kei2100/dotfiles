@@ -103,7 +103,7 @@ if which peco > /dev/null 2>&1; then
   }
 
   perepo() {
-    local REPODIR=localrepos
+    local REPODIR=repos
     REPODIR=$(echo ${REPODIR} | perl -pe 's|(^/).+(/$)||')
     local DIR=$(find ~/${REPODIR} -type d -mindepth 3 -maxdepth 3 | perl -pe "s|`echo $(cd ~ && pwd)/${REPODIR}/`||" | peco)
     cd ~/${REPODIR}/${DIR}
@@ -122,14 +122,10 @@ alias bashrc='nvim ~/dotfiles/.bashrc'
 # https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
 # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
 if [ -z "${GIT_COMPLETION_PATH}" ]; then
-  #GIT_COMPLETION_PATH=~/localrepos/local/git/git-completion.bash
-  GIT_COMPLETION_PATH=~/localrepos/local/git
+  GIT_COMPLETION_PATH=~/repos/local/git
 fi
 if [ -d ${GIT_COMPLETION_PATH} ]; then
-#  source ${GIT_COMPLETION_PATH}/git-prompt.sh
   source ${GIT_COMPLETION_PATH}/git-completion.bash
-#  GIT_PS1_SHOWDIRTYSTATE=true
-#  export PS1='\[\033[00m\]\W\[\033[30m\]$(__git_ps1)\[\033[00m\] \$ '
 fi
 
 # git diff-highlight
