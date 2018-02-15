@@ -106,7 +106,7 @@ if which peco > /dev/null 2>&1; then
     local REPODIR=repos
     REPODIR=$(echo ${REPODIR} | perl -pe 's|(^/).+(/$)||')
     local DIR=$(find ~/${REPODIR} -type d -mindepth 3 -maxdepth 3 | perl -pe "s|`echo $(cd ~ && pwd)/${REPODIR}/`||" | peco)
-    cd ~/${REPODIR}/${DIR}
+    [ ! -z $DIR ] && cd ~/${REPODIR}/${DIR}
   }
 fi
 
