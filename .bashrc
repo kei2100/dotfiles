@@ -81,6 +81,10 @@ if which brew > /dev/null 2>&1; then
       z --add "$(pwd -P)"
     }
   fi
+
+  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
+    . ${BREW_PREFIX}/etc/bash_completion
+  fi
 fi
 
 # peco
@@ -117,15 +121,6 @@ fi
 
 # bashrc
 alias bashrc='nvim ~/dotfiles/.bashrc'
-
-# git completion
-# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-if [ -z "${GIT_COMPLETION_PATH}" ]; then
-  GIT_COMPLETION_PATH=~/repos/local/git
-fi
-if [ -d ${GIT_COMPLETION_PATH} ]; then
-  source ${GIT_COMPLETION_PATH}/git-completion.bash
-fi
 
 # git diff-highlight
 [ -z "${GIT_DIFF_HIGHLIGHT_PATH}" ] && GIT_DIFF_HIGHLIGHT_PATH=/usr/local/share/git-core/contrib/diff-highlight
