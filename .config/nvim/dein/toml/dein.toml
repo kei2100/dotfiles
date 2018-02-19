@@ -13,4 +13,10 @@ hook_add = '''
   "let g:ctrlp_show_hidden = 1
 '''
 
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  autocmd vimenter * NERDTree " 起動時に開く
+  nnoremap <Leader>e :NERDTree<CR>  " ctrl + eで開く
+'''
 
