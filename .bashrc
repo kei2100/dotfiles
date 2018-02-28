@@ -4,6 +4,8 @@ alias ll='ls -l'
 alias la='ls -la'
 alias l='la'
 
+alias bd='. bd -si'
+
 # git
 alias gs='git status'
 alias gb='git branch'
