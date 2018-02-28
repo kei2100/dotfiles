@@ -1,4 +1,4 @@
-# alias
+# navigate
 alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -la'
@@ -17,35 +17,6 @@ alias gpom='git pull origin master'
 alias gpum='git pull upstream master'
 alias gpud='git pull upstream develop'
 
-function lsb() {
-  CUR=$(pwd)
-  for DIR in $(find ./*/.git -type d -maxdepth 0 | perl -pe 's|^\./(.+)/\.git|$1|'); do
-    echo ${DIR}
-    cd ${DIR} && git branch
-    cd ${CUR}
-  done
-}
-
-function gclb() {
-  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
-  if [ "$B" == "develop" ]; then
-    echo "$B"
-    return
-  fi
-
-  git checkout develop && git pull upstream develop && git branch -d $B
-}
-
-function grbd() {
-  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
-  if [ "$B" == "develop" ]; then
-    echo "$B"
-    return
-  fi
-
-  git checkout develop && git pull upstream develop && git checkout $B && git rebase develop
-}
-
 function gpo() {
   local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
   git push origin $B
@@ -56,7 +27,7 @@ function gfpr() {
 }
 
 # history
-HISTSIZE=10000
+HISTSIZE=30000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
 
 # (osx setting)
