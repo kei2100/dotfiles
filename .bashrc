@@ -32,20 +32,26 @@ function gfpr() {
 HISTSIZE=30000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
 
-# (osx setting)
-## pbcopy,pbpaste (osx)
-if which pbcopy > /dev/null 2>&1; then
+# functions
+function _cmd_exists() {
+  which $1 2>/dev/null
+}
+
+# pbcopy,pbpaste (osx)
+if [ -n $(_cmd_exists pbcopy) ]; then
   alias pb='perl -pe "chomp" | pbcopy && pbpaste'
 fi
-## Open UNC path by converting to samba path
-if which unc2smb > /dev/null 2>&1; then
+
+# open UNC path by converting to samba path
+if [ -n $(_cmd_exists unc2smb) ]; then
   function uncopen() {
     SMB_PATH=`unc2smb $@`
     open ${SMB_PATH}
   }
 fi
-## if brew exists
-if which brew > /dev/null 2>&1; then
+
+# brew
+if [ -n $(_cmd_exists brew) ]; then
   BREW_PREFIX=`brew --prefix`
   ### z
   if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ]; then
@@ -61,7 +67,7 @@ if which brew > /dev/null 2>&1; then
 fi
 
 # peco
-if which peco > /dev/null 2>&1; then
+if [ -n $(_cmd_exists peco) ]; then
   alias peco="peco --rcfile ~/dotfiles/.peco/config.json"
 
   function pessh() {
