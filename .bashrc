@@ -4,8 +4,6 @@ alias ll='ls -l'
 alias la='ls -la'
 alias l='la'
 
-alias bd='. bd -si'
-
 # git
 alias gs='git status'
 alias gb='git branch'
@@ -33,17 +31,17 @@ HISTSIZE=30000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
 
 # functions
-function _cmd_exists() {
+function _find_cmd() {
   which $1 2>/dev/null
 }
 
 # pbcopy,pbpaste (osx)
-if [ -n $(_cmd_exists pbcopy) ]; then
+if [ -n "$(_find_cmd pbcopy)" ]; then
   alias pb='perl -pe "chomp" | pbcopy && pbpaste'
 fi
 
 # open UNC path by converting to samba path
-if [ -n $(_cmd_exists unc2smb) ]; then
+if [ -n "$(_find_cmd unc2smb)" ]; then
   function uncopen() {
     SMB_PATH=`unc2smb $@`
     open ${SMB_PATH}
@@ -51,7 +49,7 @@ if [ -n $(_cmd_exists unc2smb) ]; then
 fi
 
 # brew
-if [ -n $(_cmd_exists brew) ]; then
+if [ -n "$(_find_cmd brew)" ]; then
   BREW_PREFIX=`brew --prefix`
   ### z
   if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ]; then
@@ -66,8 +64,17 @@ if [ -n $(_cmd_exists brew) ]; then
   fi
 fi
 
+# fzf
+if [ -n "$(_find_cmd fzf)" ]; then
+  export FZF_DEFAULT_OPTS='--reverse'
+  function fbd() {
+    local parent=$(pwd | perl -pe 's/\//\n/gc' | fzf)
+    [ -n "$parent" ] && . bd $parent
+  }
+fi
+
 # peco
-if [ -n $(_cmd_exists peco) ]; then
+if [ -n "$(_find_cmd peco)" ]; then
   alias peco="peco --rcfile ~/dotfiles/.peco/config.json"
 
   function pessh() {
