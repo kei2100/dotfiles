@@ -14,6 +14,7 @@ alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias gcb='git checkout -b'
 alias gpom='git pull origin master'
+alias gpod='git pull origin develop'
 alias gpum='git pull upstream master'
 alias gpud='git pull upstream develop'
 
