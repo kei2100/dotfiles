@@ -6,5 +6,5 @@ if defined?(PryByebug)
 end
 
 Pry.config.color = true
-Pry.config.editor = nvim
+Pry.config.editor = 'nvim'
 
