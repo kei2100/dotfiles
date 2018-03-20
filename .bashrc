@@ -2,7 +2,6 @@
 alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -la'
-alias l='la'
 
 # git
 alias gs='git status'
@@ -72,6 +71,11 @@ if [ -n "$(_find_cmd fzf)" ]; then
   function fbd() {
     local parent=$(pwd | perl -pe 's/\//\n/gc' | fzf)
     [ -n "$parent" ] && . bd $parent
+  }
+
+  function frepo() {
+    local DIR=$(find ~/repos \( -type d -o -type l \) -mindepth 3 -maxdepth 3 | perl -pe "s|${HOME}/repos/||" | fzf)
+    [ ! -z $DIR ] && cd -P ~/repos/${DIR}
   }
 fi
 
