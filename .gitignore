@@ -1,2 +1,3 @@
 .config/hub
 .config/direnv/allow
+.config/configstore/update-notifier-npm.json
