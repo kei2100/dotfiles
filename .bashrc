@@ -69,8 +69,15 @@ fi
 if [ -n "$(_find_cmd fzf)" ]; then
   export FZF_DEFAULT_OPTS='--reverse'
   function fbd() {
-    local parent=$(pwd | perl -pe 's/\//\n/gc' | fzf)
-    [ -n "$parent" ] && . bd $parent
+    local PRE_IFS=$IFS
+    IFS=$'\n'
+
+    local parent=$(for d in $(pwd | perl -pe 's|/|\n|gc' | tail -r); do
+      local p=$p../; echo $p$d;
+    done | tail -r | fzf)
+
+    IFS=$PRE_IFS
+    [ -n "$parent" ] && cd "$parent"
   }
 
   function frepo() {
