@@ -68,4 +68,4 @@ set wildmenu      " コマンドライン補完を拡張モードに
 " misc ----------
 set visualbell    " beep音を消す
 set laststatus=2  " statuslineを常に表示
-
+set modeline
