@@ -74,7 +74,7 @@ if [ -n "$(_find_cmd fzf)" ]; then
 
     local parent=$(for d in $(pwd | perl -pe 's|/|\n|gc' | tail -r); do
       local p=$p../; echo $p$d;
-    done | tail -r | fzf)
+    done | fzf)
 
     IFS=$PRE_IFS
     [ -n "$parent" ] && cd "$parent"
