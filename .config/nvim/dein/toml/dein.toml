@@ -6,6 +6,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 20 " default is 150
 
   " <TAB>: completion.
   inoremap <silent><expr> <TAB>
