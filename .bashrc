@@ -84,6 +84,13 @@ if [ -n "$(_find_cmd fzf)" ]; then
     local DIR=$(find ~/repos \( -type d -o -type l \) -mindepth 3 -maxdepth 3 | perl -pe "s|${HOME}/repos/||" | fzf)
     [ ! -z $DIR ] && cd -P ~/repos/${DIR}
   }
+
+  function fhistory() {
+    local CMD=$(HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S - "  history | tail -r | fzf)
+    CMD=`echo ${CMD} | perl -pe 's/.+? - (.+)/$1/gc'`
+    history -s ${CMD}
+    eval ${CMD}
+  }
 fi
 
 # peco
