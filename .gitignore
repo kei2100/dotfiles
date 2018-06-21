@@ -1,4 +1,6 @@
 .config/hub
 .config/direnv/allow
 .config/configstore/update-notifier-npm.json
+.config/configstore/update-notifier-webpack-serve.json
 .config/gops
+
