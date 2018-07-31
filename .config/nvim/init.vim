@@ -69,3 +69,8 @@ set wildmenu      " コマンドライン補完を拡張モードに
 set visualbell    " beep音を消す
 set laststatus=2  " statuslineを常に表示
 set modeline
+
+" python -------
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
