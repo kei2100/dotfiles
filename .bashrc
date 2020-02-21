@@ -25,6 +25,11 @@ function gpo() {
   git push origin $B
 }
 
+function gsddb() {
+  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
+  git switch develop && git pull origin develop && git branch -d $B
+}
+
 function gfpr() {
   git fetch origin pull/$@/head:pr-$@
 }
