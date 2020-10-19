@@ -50,28 +50,10 @@ if [ -n "$(_find_cmd pbcopy)" ]; then
   alias pb='perl -pe "chomp" | pbcopy && pbpaste'
 fi
 
-# open UNC path by converting to samba path
-if [ -n "$(_find_cmd unc2smb)" ]; then
-  function uncopen() {
-    SMB_PATH=`unc2smb $@`
-    open ${SMB_PATH}
-  }
-fi
-
 # brew
 if [ -n "$(_find_cmd brew)" ]; then
   BREW_PREFIX=`brew --prefix`
-  ### z
-  if [ -f ${BREW_PREFIX}/etc/profile.d/z.sh ]; then
-    . ${BREW_PREFIX}/etc/profile.d/z.sh
-    function precmd () {
-      z --add "$(pwd -P)"
-    }
-  fi
-
-  if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
-    . ${BREW_PREFIX}/etc/bash_completion
-  fi
+  [[ -r "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] && . "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" && echo "foo"
 fi
 
 # fzf
