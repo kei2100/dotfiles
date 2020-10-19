@@ -1,11 +1,12 @@
-"dein -----------------------------
+"dein Scripts-----------------------------
+
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state($HOME . '/.cache/dein')
+if dein#load_state('/.cache/dein')
   let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
   let s:dein_dir = s:cache_home . '/dein'
   let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -27,7 +28,6 @@ if dein#load_state($HOME . '/.cache/dein')
   endif
 endif
 
-" Required:
 filetype plugin indent on
 syntax enable
 "End dein -------------------------
@@ -71,6 +71,6 @@ set laststatus=2  " statuslineを常に表示
 set modeline
 
 " python -------
-let g:python_host_prog = '/usr/local/bin/python2'
+let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 

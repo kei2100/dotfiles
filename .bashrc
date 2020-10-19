@@ -53,7 +53,7 @@ fi
 # brew
 if [ -n "$(_find_cmd brew)" ]; then
   BREW_PREFIX=`brew --prefix`
-  [[ -r "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] && . "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" && echo "foo"
+  [[ -r "${BREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] && . "${BREW_PREFIX}/etc/profile.d/bash_completion.sh"
 fi
 
 # fzf
