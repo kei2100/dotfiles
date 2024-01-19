@@ -117,7 +117,7 @@ if [ -f ~/dotfiles/.tmux.conf ]; then
 fi
 
 # bashrc
-alias bashrc='nvim ~/dotfiles/.bashrc'
+alias bashrc='vim ~/dotfiles/.bashrc'
 
 # git diff-highlight
 [ -z "${GIT_DIFF_HIGHLIGHT_PATH}" ] && GIT_DIFF_HIGHLIGHT_PATH=/usr/local/share/git-core/contrib/diff-highlight
