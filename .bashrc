@@ -39,6 +39,7 @@ function gfpr() {
 # history
 HISTSIZE=30000
 HISTTIMEFORMAT="%Y/%m/%d %H:%M:%S "
+HISTCONTROL=ignoredups
 
 # functions
 function _find_cmd() {
