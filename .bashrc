@@ -32,6 +32,11 @@ function gsddb() {
   git switch develop && git pull origin develop && git branch -d $B
 }
 
+function gsmdb() {
+  local B=$(git branch | grep '^* ' | perl -pe 's/^\* //gc')
+  git switch main && git pull origin main && git branch -d $B
+}
+
 function gfpr() {
   git fetch origin pull/$@/head:pr-$@
 }
